@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Canciones</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <h1>Lista de Canciones</h1>
+  <a href="/add">Agregar Nueva Canción</a>
+  <ul>
+    <% songs.forEach(function(song) { %>
+      <li><%= song.title %> - <%= song.artist %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
