@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Canciones</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #007BFF;
+      margin-top: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 10px 0;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .div1 {
+      background-color: #c8a2c8; /* Cambia el color de fondo a morado claro */
+    }
+
+    .carousel-container {
+      width: 100%; /* Cambiar el ancho al 100% para ocupar todo el ancho de la ventana */
+      height: 700px; /* Ajusta la altura máxima del carrusel según tus preferencias */
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%; /* Asegurar que el carrusel ocupe todo el ancho */
+    }
+
+    .carousel img {
+      width: auto; /* Cambiar al ancho automático para mantener la proporción original */
+      max-height: 100%; /* Ajustar la altura máxima de las imágenes */
+    }
+
+    .carousel-button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Canciones</h1>
+  <a href="/add">Agregar Nueva Canción</a>
+  <ul>
+    <% songs.forEach(function(song) { %>
+      <li>
+        <div class="song-info">
+          <li class="div1"><span><%= song.title %></span></li>
+          <li><span><%= song.artist %></span></li>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+  <div class="carousel-container">
+    <div class="carousel">
+        <img src="https://i.pinimg.com/originals/a8/83/00/a88300a122897f3d5cb9ab2e16c3c0dd.jpg" alt="Imagen 1">
+        <img src="https://i.pinimg.com/736x/24/1d/88/241d88291f5be4b0da12da7ff631c9e2.jpg" alt="Imagen 2">
+        <img src="https://i.pinimg.com/736x/d4/08/30/d40830d882b9cb7268be98f991094fad.jpg" alt="Imagen 3">
+        <img src="https://i.pinimg.com/736x/e9/91/ca/e991cab2ebecd7175f2ea4a8d5bb06ff.jpg" alt="Imagen 4">
+        <img src="https://i.pinimg.com/564x/8e/d3/8f/8ed38f7bcd6706c2b35ce739129790bc.jpg" alt="Imagen 1">
+        <img src="https://i.pinimg.com/736x/07/eb/92/07eb926ecb4b05647b972167183c0e38.jpg" alt="Imagen 2">
+        <img src="https://i.pinimg.com/originals/1c/2e/29/1c2e297c4edf35ba3dfcaa57c0100cb2.png" alt="Imagen 3">
+        <img src="https://i.pinimg.com/736x/df/3a/5d/df3a5d113c83f854d26a701ac9210c71.jpg" alt="Imagen 4">
+    </div>
+  </div>
+  <button class="carousel-button" onclick="prevSlide()">Anterior</button>
+  <button class="carousel-button" onclick="nextSlide()">Siguiente</button>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.carousel img');
+    const carousel = document.querySelector('.carousel');
+
+    function showSlide(index) {
+      if (index < 0) {
+        currentIndex = slides.length - 1;
+      } else if (index >= slides.length) {
+        currentIndex = 0;
+      }
+
+      const offset = -currentIndex * 100; // Ancho del carrusel
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+
+    showSlide(currentIndex);
+  </script>
+  
+</body>
+</html>

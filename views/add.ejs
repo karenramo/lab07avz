@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agregar Canción</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Agregar Canción</h1>
+  <form method="POST" action="/add">
+    <div>
+      <label for="title">Título de la canción:</label>
+      <input type="text" name="title" id="title" required>
+    </div>
+    <div>
+      <label for="artist">Artista:</label>
+      <input type="text" name="artist" id="artist" required>
+    </div>
+    <button type="submit">Agregar</button>
+  </form>
+  <a href="/">Volver a la lista de canciones</a>
+</body>
+</html>
